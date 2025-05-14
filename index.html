@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Головоломка Монти Холла</title>
+    <title>Парадокс Монти Холла</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="svg/goat.svg">
 </head>
 <body>
     <div class="game-container">
@@ -13,46 +14,56 @@
         <div class="message info">Выберите одну из трёх дверей</div>
 
         <div class="doors-container">
-            <!-- Дверь 1 (правильно закрыта) -->
-            <div class="door" data-door="1">
-                <div class="door-front">Дверь 1</div>
-                <div class="door-back">
-                    <span class="prize-text"></span>
-                    <img class="prize-image hidden" src="svg/wrapped-gift.svg" />
-                    <img class="goat-image hidden" src="svg/goat.svg" />
+            <!-- Дверь 1 -->
+            <div class="door-wrapper">
+                <input type="radio" name="door" id="door1" class="door-input">
+                <label for="door1" class="door-label">1</label>
+                <div class="door" data-door="1">
+                    <div class="door-front">
+                        <img src="svg/door.svg" alt="Дверь 1" class="door-image">
+                    </div>
+                    <div class="door-back">
+                        <img class="prize-image hidden" src="svg/wrapped-gift.svg" alt="Приз">
+                        <img class="goat-image hidden" src="svg/goat.svg" alt="Коза">
+                    </div>
                 </div>
-            </div> <!-- Закрывающий тег для двери 1 -->
-            <!-- Дверь 2 (правильно закрыта) -->
-            <div class="door" data-door="2">
-                <div class="door-front">Дверь 2</div>
-                <div class="door-back">
-                    <span class="prize-text"></span>
-                    <img class="prize-image hidden" src="svg/wrapped-gift.svg" />
-                    <img class="goat-image hidden" src="svg/goat.svg" />
+            </div>
+
+            <!-- Дверь 2 -->
+            <div class="door-wrapper">
+                <input type="radio" name="door" id="door2" class="door-input">
+                <label for="door2" class="door-label">2</label>
+                <div class="door" data-door="2">
+                    <div class="door-front">
+                        <img src="svg/door.svg" alt="Дверь 2" class="door-image">
+                    </div>
+                    <div class="door-back">
+                        <img class="prize-image hidden" src="svg/wrapped-gift.svg" alt="Приз">
+                        <img class="goat-image hidden" src="svg/goat.svg" alt="Коза">
+                    </div>
                 </div>
-            </div> <!-- Закрывающий тег для двери 2 -->
-            <!-- Дверь 3 (правильно закрыта) -->
-            <div class="door" data-door="3">
-                <div class="door-front">Дверь 3</div>
-                <div class="door-back">
-                    <span class="prize-text"></span>
-                    <img class="prize-image hidden" src="svg/wrapped-gift.svg"/>
-                    <img class="goat-image hidden" src="svg/goat.svg" />
+            </div>
+
+            <!-- Дверь 3 -->
+            <div class="door-wrapper">
+                <input type="radio" name="door" id="door3" class="door-input">
+                <label for="door3" class="door-label">3</label>
+                <div class="door" data-door="3">
+                    <div class="door-front">
+                        <img src="svg/door.svg" alt="Дверь 3" class="door-image">
+                    </div>
+                    <div class="door-back">
+                        <img class="prize-image hidden" src="svg/wrapped-gift.svg" alt="Приз">
+                        <img class="goat-image hidden" src="svg/goat.svg" alt="Коза">
+                    </div>
                 </div>
-            </div> <!-- Закрывающий тег для двери 3 -->
+            </div>
         </div>
 
         <div class="action-buttons">
             <button id="switch-btn" disabled>Сменить выбор</button>
             <button id="stay-btn" disabled>Оставить выбор</button>
             <button id="restart-btn">Новая игра</button>
-        </div>
-
-        <div class="stats">
-            <div class="stat">Игр: <span id="games-played">0</span></div>
-            <div class="stat">Побед: <span id="wins">0</span></div>
-            <div class="stat">Поражений: <span id="losses">0</span></div>
-            <div class="stat">% побед: <span id="win-rate">0</span></div>
         </div>
     </div>
     <script src="script.js"></script>

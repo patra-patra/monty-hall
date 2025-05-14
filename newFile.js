@@ -16,10 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
         gameOver = false;
 
         doors.forEach((door) => {
-            door.classList.remove("open", "selected");
+            door.classList.remove("open");
             const back = door.querySelector(".door-back");
             back.querySelector(".prize-image").classList.add("hidden");
             back.querySelector(".goat-image").classList.add("hidden");
+            back.querySelector(".prize-text").textContent = "";
         });
 
         inputs.forEach((input) => (input.checked = false));
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         doorEl.classList.add("open");
         const back = doorEl.querySelector(".door-back");
         back.querySelector(".goat-image").classList.remove("hidden");
+        back.querySelector(".prize-text").textContent = "Коза";
 
         switchBtn.disabled = false;
         stayBtn.disabled = false;
@@ -83,10 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
         door.addEventListener("click", () => {
             if (gameOver || firstChoice) return;
             firstChoice = parseInt(door.dataset.door);
-
-            doors.forEach(d => d.classList.remove("selected"));
-            door.classList.add("selected");
-
             openGoatDoor();
         });
     });
