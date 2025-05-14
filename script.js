@@ -37,9 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         openedDoor = candidates[Math.floor(Math.random() * candidates.length)];
 
-        const doorEl = document.querySelector(
-            `.door[data-door="${openedDoor}"]`
-        );
+        const doorEl = document.querySelector(`.door[data-door="${openedDoor}"]`);
         doorEl.classList.add("open");
         const back = doorEl.querySelector(".door-back");
         back.querySelector(".goat-image").classList.remove("hidden");
@@ -58,6 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
         finalChoice = switchChoice
             ? [1, 2, 3].find((n) => n !== firstChoice && n !== openedDoor)
             : firstChoice;
+
+        // Подсветка финального выбора
+        doors.forEach((door) => door.classList.remove("selected"));
+        const selectedDoorEl = document.querySelector(`.door[data-door="${finalChoice}"]`);
+        selectedDoorEl.classList.add("selected");
 
         doors.forEach((door) => {
             const num = parseInt(door.dataset.door);
